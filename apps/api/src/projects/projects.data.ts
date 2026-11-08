@@ -1,0 +1,93 @@
+import type { Project } from './project.js';
+
+// Seeded from the v1 portfolio. Move to a database once projects are edited outside the code.
+export const projects: Project[] = [
+  {
+    slug: 'idara-api',
+    title: 'Idara API',
+    summary:
+      'Backend for a global business registration platform with client, admin and agent roles. Clients go from not having a business name to having one, plus every document needed to start a business.',
+    stack: ['NestJS', 'PostgreSQL', 'TypeScript', 'Nodemailer', 'CI/CD'],
+    url: 'https://rebuild-api.goidara.com/api',
+    image: '/v1/images/idara-api.gif',
+  },
+  {
+    slug: 'smart-pathways',
+    title: 'Smart Pathways',
+    summary: 'Guidance and support for scholarships and financial aid programs.',
+    stack: ['React', 'TailwindCSS', 'JavaScript', 'MongoDB', 'Node.js', 'Express', 'Passport', 'Cloudinary', 'EmailJS'],
+    url: 'https://smart-pathways.netlify.app/',
+    repoUrl: 'https://github.com/sarah-adewale/smart-pathways',
+    image: '/v1/images/smart-pathways.gif',
+  },
+  {
+    slug: 'gidigan',
+    title: 'Gidigan Web App',
+    summary: 'A marketplace for anyone with something to sell, with pocket-friendly pricing plans.',
+    stack: ['Angular', 'TailwindCSS', 'Sass', 'JavaScript', 'SQL', 'Node.js', 'Express', 'Passport', 'Cloudinary', 'Railway'],
+    url: 'https://gidigan.netlify.app/',
+    image: '/v1/images/gidigan.gif',
+  },
+  {
+    slug: 'text-fx',
+    title: 'Text FX Plugin',
+    summary: 'A Figma plugin for animated text effects (typing, fade-in, bounce) applied directly on the canvas.',
+    stack: ['Figma Plugin', 'JavaScript', 'TypeScript', 'Figma CLI'],
+    url: 'https://github.com/sarah-adewale/Text-Fx',
+    repoUrl: 'https://github.com/sarah-adewale/Text-Fx',
+    image: '/v1/images/textfx.gif',
+  },
+  {
+    slug: 'laundry-squared',
+    title: 'Laundry Squared PWA',
+    summary:
+      'Fullstack laundromat management PWA with authentication, booking APIs, payment processing and real-time status updates.',
+    stack: ['PWA', 'React', 'TailwindCSS', 'MongoDB', 'Node.js', 'Express', 'Passport', 'Cloudinary', 'GCP'],
+    url: 'https://laundry-squared.netlify.app/',
+    image: '/v1/images/laundry-squared.gif',
+  },
+  {
+    slug: 'hello-kene-1',
+    title: 'Hello Kene 1.0',
+    summary: 'A redesign of a product designer’s portfolio where users browse projects, collectibles and design packs.',
+    stack: ['React', 'JavaScript', 'TailwindCSS', 'Node.js', 'Express', 'Paystack API'],
+    url: 'https://hellokene.com/',
+    repoUrl: 'https://github.com/sarah-adewale/hellokene',
+    image: '/v1/images/hellokene1.0.gif',
+  },
+  {
+    slug: 'ncts',
+    title: 'No Code Tech Summit',
+    summary: 'Site for an annual African event connecting people working in the no-code tech space.',
+    stack: ['PHP', 'Custom WordPress'],
+    url: 'https://nocodetechsummit.com/',
+    image: '/v1/images/NCTS.gif',
+  },
+  {
+    slug: 'venddir',
+    title: 'Venddir',
+    summary: 'An online directory that puts vendors in the spotlight.',
+    stack: ['EJS', 'TailwindCSS', 'CSS', 'JavaScript', 'MongoDB', 'Node.js', 'Express', 'Passport', 'Cloudinary'],
+    url: 'https://github.com/sarah-adewale/Vendirr',
+    repoUrl: 'https://github.com/sarah-adewale/Vendirr',
+    image: '/v1/images/venddir.gif',
+  },
+  {
+    slug: 'cineverse',
+    title: 'CineVerse',
+    summary: 'A movie discovery app with personalized recommendations, built on the MovieDB API.',
+    stack: ['JavaScript', 'CSS', 'Font Awesome', 'Swiper', 'MovieDB API'],
+    url: 'https://cineverse-movies.netlify.app/',
+    repoUrl: 'https://github.com/sarah-adewale/cineverse',
+    image: '/v1/images/cineverse.gif',
+  },
+  {
+    slug: 'hello-kene',
+    title: 'Hello Kene',
+    summary: 'Portfolio site for a product designer, developer and researcher.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    url: 'https://hellokene.netlify.app/',
+    repoUrl: 'https://github.com/sarah-adewale/hello-kene',
+    image: '/v1/images/hellokene.gif',
+  },
+];
