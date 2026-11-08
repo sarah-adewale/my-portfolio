@@ -4,6 +4,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { MailModule } from '@nestjs/mail';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { AppController } from './app.controller.js';
+import { ArticlesModule } from './articles/articles.module.js';
 import { ContactModule } from './contact/contact.module.js';
 import { envSchema, type Env } from './env.js';
 import { mailTransport } from './mail.js';
@@ -20,6 +21,7 @@ import { ProjectsModule } from './projects/projects.module.js';
         from: config.get('MAIL_FROM', { infer: true }),
       }),
     }),
+    ArticlesModule,
     ContactModule,
     ProjectsModule,
   ],

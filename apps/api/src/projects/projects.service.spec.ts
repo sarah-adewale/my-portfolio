@@ -5,7 +5,7 @@ describe('ProjectsService', () => {
   const service = new ProjectsService();
 
   it('finds a project by slug', () => {
-    expect(service.findOne('idara-api').title).toBe('Idara API');
+    expect(service.findOne('idara').title).toBe('Idara');
   });
 
   it('throws NotFound for an unknown slug', () => {

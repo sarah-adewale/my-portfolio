@@ -3,8 +3,13 @@ export interface Project {
   title: string;
   summary: string;
   stack: string[];
-  url: string;
+  kind: 'project' | 'tool';
+  // Shown on the homepage, in this order
+  featured?: boolean;
+  url?: string;
   repoUrl?: string;
-  // Path on the web app; the v1 site's images are served from /v1/images
-  image: string;
+  // Paths on the web app. `logo` is a white silhouette tinted by the theme; without one
+  // the tile shows a monogram.
+  logo?: string;
+  preview?: string;
 }

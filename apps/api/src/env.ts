@@ -11,6 +11,7 @@ export const envSchema = z
     CONTACT_INBOX: z.string().default('sarahtemitopeadewale@gmail.com'),
     SMTP_URL: z.string().optional(),
     RESEND_API_KEY: z.string().optional(),
+    DEVTO_USERNAME: z.string().default('sarahadewale'),
   })
   .superRefine((env, ctx) => {
     if (env.MAIL_TRANSPORT === 'smtp' && !env.SMTP_URL) {
