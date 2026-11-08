@@ -68,6 +68,14 @@ export function CopyIcon(props: IconProps) {
   );
 }
 
+export function CheckIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden {...base} strokeWidth={2.4} {...props}>
+      <path d="M5 12.5l4.5 4.5L19 7.5" />
+    </svg>
+  );
+}
+
 export function TrashIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden {...base} {...props}>

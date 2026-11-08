@@ -2,6 +2,7 @@ import type { Project } from './project.js';
 
 // Seeded from the v1 portfolio. Move to a database once projects are edited outside the code.
 // Previews are animated WebP, converted from the v1 GIFs (about a third of the size).
+// Logos for the v1 projects were taken from each site or repo and made into white silhouettes.
 export const projects: Project[] = [
   {
     slug: 'idara',
@@ -38,20 +39,10 @@ export const projects: Project[] = [
     preview: '/images/projects/gidigan.webp',
   },
   {
-    slug: 'text-fx',
-    kind: 'project',
-    featured: true,
-    title: 'Text FX Plugin',
-    summary: 'A Figma plugin for animated text effects (typing, fade-in, bounce) applied directly on the canvas.',
-    stack: ['Figma Plugin', 'JavaScript', 'TypeScript', 'Figma CLI'],
-    url: 'https://github.com/sarah-adewale/Text-Fx',
-    repoUrl: 'https://github.com/sarah-adewale/Text-Fx',
-    preview: '/images/projects/text-fx.webp',
-  },
-  {
     slug: 'laundry-squared',
     kind: 'project',
     featured: true,
+    logo: '/logos/projects/laundry-squared-dark.png',
     title: 'Laundry Squared PWA',
     summary:
       'Fullstack laundromat management PWA with authentication, booking APIs, payment processing and real-time status updates.',
@@ -63,6 +54,7 @@ export const projects: Project[] = [
     slug: 'hello-kene-1',
     kind: 'project',
     featured: true,
+    logo: '/logos/projects/hello-kene-dark.png',
     title: 'Hello Kene 1.0',
     summary: 'A redesign of a product designer’s portfolio where users browse projects, collectibles and design packs.',
     stack: ['React', 'JavaScript', 'TailwindCSS', 'Node.js', 'Express', 'Paystack API'],
@@ -74,6 +66,7 @@ export const projects: Project[] = [
     slug: 'ncts',
     kind: 'project',
     featured: true,
+    logo: '/logos/projects/ncts-dark.png',
     title: 'No Code Tech Summit',
     summary: 'Site for an annual African event connecting people working in the no-code tech space.',
     stack: ['PHP', 'Custom WordPress'],
@@ -84,6 +77,7 @@ export const projects: Project[] = [
     slug: 'venddir',
     kind: 'project',
     featured: true,
+    logo: '/logos/projects/venddir-dark.png',
     title: 'Venddir',
     summary: 'An online directory that puts vendors in the spotlight.',
     stack: ['EJS', 'TailwindCSS', 'CSS', 'JavaScript', 'MongoDB', 'Node.js', 'Express', 'Passport', 'Cloudinary'],
@@ -95,6 +89,7 @@ export const projects: Project[] = [
     slug: 'cineverse',
     kind: 'project',
     featured: true,
+    logo: '/logos/projects/cineverse-dark.png',
     title: 'CineVerse',
     summary: 'A movie discovery app with personalized recommendations, built on the MovieDB API.',
     stack: ['JavaScript', 'CSS', 'Font Awesome', 'Swiper', 'MovieDB API'],
@@ -106,6 +101,7 @@ export const projects: Project[] = [
     slug: 'hello-kene',
     kind: 'project',
     featured: true,
+    logo: '/logos/projects/hello-kene-dark.png',
     title: 'Hello Kene',
     summary: 'Portfolio site for a product designer, developer and researcher.',
     stack: ['HTML', 'CSS', 'JavaScript'],
@@ -114,14 +110,26 @@ export const projects: Project[] = [
     preview: '/images/projects/hello-kene.webp',
   },
   {
+    slug: 'text-fx',
+    kind: 'tool',
+    featured: true,
+    logo: '/logos/projects/text-fx-dark.png',
+    title: 'Text FX Plugin',
+    summary: 'A Figma plugin for animated text effects (typing, fade-in, bounce) applied directly on the canvas.',
+    stack: ['Figma Plugin', 'JavaScript', 'TypeScript', 'Figma CLI'],
+    url: 'https://github.com/sarah-adewale/Text-Fx',
+    repoUrl: 'https://github.com/sarah-adewale/Text-Fx',
+    preview: '/images/projects/text-fx.webp',
+  },
+  {
     slug: 'nutch',
     kind: 'tool',
     featured: true,
     title: 'Nutch',
     summary: 'Bridging AI for every browser with Nutch',
     stack: ['Nest.JS', 'PostgreSQL', 'TypeScript'],
-    // TODO: placeholder until Nutch's own link is ready
-    url: 'https://github.com/sarah-adewale',
+    // Add `url` and drop this once Nutch is live
+    comingSoon: true,
     logo: '/logos/projects/nutch-dark.png',
     // Cropped from the Figma hover state; swap for a GIF when there is one
     preview: '/images/projects/nutch-preview.webp',

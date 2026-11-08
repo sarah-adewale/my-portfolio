@@ -54,10 +54,16 @@ function Details({ project, command }: { project: Project; command: string }) {
         <span>Stack: </span>
         <span>{project.stack.join(", ")}</span>
       </p>
-      {project.url && (
-        <a className="term__btn" href={project.url} target="_blank" rel="noopener noreferrer">
-          {verb} {project.title} <ArrowUpRightIcon />
-        </a>
+      {project.comingSoon ? (
+        <span className="term__btn term__btn--soon" aria-disabled="true">
+          Coming soon
+        </span>
+      ) : (
+        project.url && (
+          <a className="term__btn" href={project.url} target="_blank" rel="noopener noreferrer">
+            {verb} {project.title} <ArrowUpRightIcon />
+          </a>
+        )
       )}
     </>
   );

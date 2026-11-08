@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { decodeJwt, keyKind, REGISTERED_CLAIMS, TIME_CLAIMS, verifyJwt, type DecodedJwt } from "@/lib/jwt";
-import { CopyIcon, TrashIcon } from "./icons";
+import { CheckIcon, CopyIcon, TrashIcon } from "./icons";
 import { Window } from "./window";
 
 type Verification = { state: "none" } | { state: "checking" } | { state: "done"; valid: boolean } | { state: "error"; message: string };
@@ -61,6 +61,7 @@ export function JwtWindow({ className = "" }: { className?: string }) {
   const [view, setView] = useState<"json" | "claims">("json");
   const [token, setToken] = useState("");
   const [key, setKey] = useState("");
+  const [copied, setCopied] = useState(false);
   // The last finished check; anything else for the current token and key is still running
   const [checked, setChecked] = useState<{ token: string; key: string; result: Verification } | null>(null);
 
@@ -85,6 +86,18 @@ export function JwtWindow({ className = "" }: { className?: string }) {
     };
   }, [canVerify, token, key]);
 
+  // The tick turns back into the copy icon after a moment
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(false), 1500);
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  function copyToken() {
+    if (!token) return;
+    navigator.clipboard?.writeText(token).then(() => setCopied(true));
+  }
+
   return (
     <Window title="Try my JWT decoder" className={className}>
       <div>
@@ -102,9 +115,18 @@ export function JwtWindow({ className = "" }: { className?: string }) {
             <>
               <div className="jwt__panel-head">
                 <span className="term__prompt">&gt;_</span> JSON Web Token (JWT)
-                <button type="button" className="jwt__icon-btn" aria-label="Copy token" onClick={() => navigator.clipboard?.writeText(token)}>
-                  <CopyIcon />
+                <button
+                  type="button"
+                  className="jwt__icon-btn"
+                  aria-label={copied ? "Token copied" : "Copy token"}
+                  data-copied={copied || undefined}
+                  onClick={copyToken}
+                >
+                  {copied ? <CheckIcon /> : <CopyIcon />}
                 </button>
+                <span className="sr-only" aria-live="polite">
+                  {copied ? "Token copied" : ""}
+                </span>
                 <button type="button" className="jwt__icon-btn" aria-label="Clear token" onClick={() => setToken("")}>
                   <TrashIcon />
                 </button>

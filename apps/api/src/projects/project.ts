@@ -8,6 +8,8 @@ export interface Project {
   featured?: boolean;
   url?: string;
   repoUrl?: string;
+  // Shows a disabled "Coming soon" button in place of Visit/Try
+  comingSoon?: boolean;
   // Paths on the web app. `logo` is a white silhouette tinted by the theme; without one
   // the tile shows a monogram.
   logo?: string;

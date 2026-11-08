@@ -1,5 +1,5 @@
 import { career, RESUME_URL } from "@/content/profile";
-import { ArrowDownIcon } from "./icons";
+import { ArrowUpRightIcon } from "./icons";
 import { Window } from "./window";
 
 export function CareerWindow() {
@@ -18,8 +18,8 @@ export function CareerWindow() {
         </div>
       ))}
       <div className="career__resume">
-        <a className="term__btn" href={RESUME_URL} download="sarah-adewale-resume.pdf">
-          Download resume <ArrowDownIcon />
+        <a className="term__btn" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+          View resume <ArrowUpRightIcon />
         </a>
       </div>
     </Window>

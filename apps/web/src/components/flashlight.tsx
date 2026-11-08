@@ -63,7 +63,7 @@ export function Flashlight() {
       colWidth = Number(styles.getPropertyValue("--flashlight-col")) || 22;
       rowHeight = Number(styles.getPropertyValue("--flashlight-row")) || 24;
       ensureColumns();
-      font = `13px ${styles.getPropertyValue("--font-mono")}`;
+      font = `${Number(styles.getPropertyValue("--flashlight-size")) || 13}px ${styles.getPropertyValue("--font-mono")}`;
     }
 
     function resize() {

@@ -38,7 +38,7 @@ export const career: CareerEntry[] = [
     summary: "Assured quality on features that serviced over 3,000+ customers and over N2 billion in transaction volume",
   },
   {
-    dates: "Oct 2024 - Present",
+    dates: "2024 - 2026",
     role: "Lead Backend Engineer",
     company: "Rvysion Studios",
     summary: "Led Idara’s migration from Laravel to NestJS, improving performance by 40%, and cut response times by 60% with query optimisation and caching",

@@ -50,6 +50,7 @@
   --term-item: #d1d5db;
   --term-dir: #93c5fd;
   --term-green: #4ade80;
+  --success: #4ade80;
   --term-amber: #fbbf24;
   --btn-primary-bg: #e2e8f0;
   --btn-primary-fg: #020617;
@@ -68,9 +69,10 @@
   --flashlight-glow: 0.3;
   --flashlight-digit: #206c34;
   --flashlight-peak: 0.75;
-  /* Grid spacing of the falling columns, in px */
+  /* Grid spacing of the falling columns and the digit size, in px */
   --flashlight-col: 22;
   --flashlight-row: 24;
+  --flashlight-size: 13;
   --logo: #ffffff;
   --lift: 0 8px 24px rgb(0 0 0 / 0.5);
   --overlay: rgb(0 0 0 / 0.6);
@@ -91,6 +93,7 @@
   --term-item: #334155;
   --term-dir: #1d4ed8;
   --term-green: #334155;
+  --success: #16a34a;
   --term-amber: #b45309;
   --btn-primary-bg: #0f172a;
   --btn-primary-fg: #ffffff;
@@ -104,13 +107,14 @@
   --tree-front: #cbd5e1;
   --binary: #15803d;
   --glow-rgb: 203 213 225;
-  /* Light mode: green digits on a denser grid, with a faint white halo */
+  /* Light mode: faint pale-green digits on a denser grid, no halo */
   --flashlight-glow-color: #ffffff;
-  --flashlight-glow: 0.9;
+  --flashlight-glow: 0;
   --flashlight-digit: #16a34a;
-  --flashlight-peak: 0.9;
+  --flashlight-peak: 0.32;
   --flashlight-col: 16;
   --flashlight-row: 16;
+  --flashlight-size: 14;
   --logo: #52525b;
   --lift: 0 8px 24px rgb(15 23 42 / 0.08);
   --overlay: rgb(15 23 42 / 0.35);
@@ -287,6 +291,11 @@ body {
   font: 500 12px/1 var(--font-mono);
   white-space: nowrap;
   cursor: pointer;
+}
+
+.term__btn--soon {
+  opacity: 0.55;
+  cursor: default;
 }
 
 .actions {
@@ -492,6 +501,8 @@ body {
 .window[data-collapsed] .window__dot--yellow::after { content: "+"; }
 .window__dot--green::after { content: "⤢"; font-size: 8px; }
 .window[data-full] .window__dot--green::after { content: "×"; font-size: 10px; }
+/* The contact dialog only closes, so its yellow dot always shows × */
+.contact .window__dot--yellow::after { content: "×"; font-size: 10px; opacity: 1; }
 
 .window__bar:hover .window__dot:not(:disabled)::after,
 .window__dot:focus-visible::after {
@@ -893,6 +904,11 @@ body {
 
 .jwt__icon-btn:hover {
   color: var(--text);
+}
+
+.jwt__icon-btn[data-copied],
+.jwt__icon-btn[data-copied]:hover {
+  color: var(--success);
 }
 
 .jwt__icon-btn svg {

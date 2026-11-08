@@ -12,6 +12,7 @@ export interface Project {
   featured?: boolean;
   url?: string;
   repoUrl?: string;
+  comingSoon?: boolean;
   logo?: string;
   preview?: string;
 }

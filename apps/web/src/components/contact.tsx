@@ -61,7 +61,7 @@ export function ContactDialog() {
       <header className="window__bar">
         <div className="window__dots">
           <button type="button" className="window__dot window__dot--yellow" aria-label="Close" onClick={() => dialogRef.current?.close()} />
-          <span className="window__dot window__dot--green" aria-hidden />
+          <button type="button" className="window__dot window__dot--green" aria-label="Full view (unavailable)" disabled />
         </div>
         <h2 id="contact-title" className="term__title">
           Send a message
