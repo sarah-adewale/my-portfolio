@@ -19,7 +19,7 @@ cp apps/web/.env.example apps/web/.env.local
 npm run dev          # web on :3000, api on :4000
 ```
 
-Contact-form mails are printed to the API's console by default (`MAIL_TRANSPORT=log`). Set `MAIL_TRANSPORT=smtp` or `resend` with its credentials in `apps/api/.env` to send real email.
+Contact-form mails are printed to the API's console by default (`MAIL_TRANSPORT=log`). Set `MAIL_TRANSPORT=smtp` or `resend` with its credentials in `apps/api/.env` to send real email. For Gmail, create an app password (myaccount.google.com/apppasswords) and set `SMTP_URL` to `smtps://` + your address (with `@` written as `%40`) + `:` + the app password + `@smtp.gmail.com:465`.
 
 ```sh
 npm test                              # all workspaces

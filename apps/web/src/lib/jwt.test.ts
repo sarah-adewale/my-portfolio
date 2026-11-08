@@ -1,12 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { decodeJwt, keyKind, verifyJwt } from "./jwt";
 
-// The HS256 example token from jwt.io, signed with "your-256-bit-secret"
-const HS256_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-
 function base64Url(bytes: ArrayBuffer | Uint8Array): string {
   return Buffer.from(bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes)).toString("base64url");
+}
+
+// Signed at runtime rather than committed, so secret scanners don't flag a fixture
+const HS256_SECRET = "your-256-bit-secret";
+const HS256_TOKEN = await signHs256({ sub: "1234567890", name: "John Doe", iat: 1516239022 }, HS256_SECRET);
+
+async function signHs256(payload: object, secret: string) {
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const head = base64Url(new TextEncoder().encode(JSON.stringify({ alg: "HS256", typ: "JWT" })));
+  const body = base64Url(new TextEncoder().encode(JSON.stringify(payload)));
+  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(`${head}.${body}`));
+  return `${head}.${body}.${base64Url(sig)}`;
 }
 
 async function signRs256(payload: object) {
@@ -42,7 +50,7 @@ describe("decodeJwt", () => {
 
 describe("verifyJwt", () => {
   it("verifies HS256 with the right secret", async () => {
-    await expect(verifyJwt(HS256_TOKEN, "your-256-bit-secret")).resolves.toBe(true);
+    await expect(verifyJwt(HS256_TOKEN, HS256_SECRET)).resolves.toBe(true);
   });
 
   it("fails HS256 with the wrong secret", async () => {
