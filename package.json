@@ -1,0 +1,18 @@
+{
+  "name": "my-portfolio",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,api -c magenta,cyan \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:web": "npm run dev -w @portfolio/web",
+    "dev:api": "npm run start:dev -w @portfolio/api",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
